@@ -15,16 +15,12 @@ import co.edu.ufps.modelo.dto.TipoUsuarioDTO;
  */
 public class Fachada {
 
-    public PersonaDTO registrarPersona(int codigo, String nombre, String apellido, String correo, String contrasena, String celular, int idTipo) throws Exception {
+    public boolean registrarPersona(int codigo, String nombre, String apellido, String correo, String contrasena, String celular, int idTipo) throws Exception {
         TipoUsuarioDTO t = new TipoUsuarioDTO();
         t.setId(idTipo);
         PersonaDTO p = new PersonaDTO(codigo, nombre, apellido, correo, contrasena, celular, t);
         PersonaDAO d = new PersonaDAO();
-        if (d.registrarPersona(p)) {
-            return p;
-        } else {
-            return null;
-        }
+        return d.registrarPersona(p);
     }
 
     public PersonaDTO iniciarSesion(int codigo, String contrasena) throws Exception {
@@ -33,5 +29,16 @@ public class Fachada {
         dto.setCodigo(codigo);
         dto.setContrasena(contrasena);
         return dao.iniciarSesion(dto);
+    }
+    
+    public boolean actualizarPersona(String nombre,String apellido,String celular,String imagen, int codigo) throws Exception{
+        PersonaDAO dao = new PersonaDAO();
+        PersonaDTO dto = new PersonaDTO();
+        dto.setNombre(nombre);
+        dto.setApellido(apellido);
+        dto.setCelular(celular);
+        dto.setImagen(imagen);
+        dto.setCodigo(codigo);
+        return dao.actualizarPersona(dto);
     }
 }

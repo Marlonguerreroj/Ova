@@ -10,11 +10,42 @@ $(document).ready(function () {
         $("#rem").blur();
 
     });
+
 });
+function add() {
+    $("#actForm").bind("submit", function () {
+        var form = $("#actForm")[0];
+        var formData = new FormData(form);
+        $.ajax({
+            type: "POST",
+            url: "../Control",
+            data: formData,
+            enctype: 'multipart/form-data',
+            contentType: false,
+            processData: false,
+            cache: false,
+            success: function (data) {
+                if(data === "true"){
+                    location.reload();
+                }else if(data === "false"){
+                    
+                }
+            },
+            error: function (data) {
+
+            }
+        });
+        return false;
+    });
+}
 
 function redirect(url) {
     $("#remp").empty();
-    $("#remp").load(url);
-    $("#rem").blur();
+    $("#remp").load(url, function () {
+        if (("#actForm").length > 0) {
+            add();
+        }
+    });
+
 }
 

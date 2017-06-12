@@ -97,7 +97,7 @@
                         </header>
                         <div class="mini-posts">
                             <article>
-                                <a href="#" class="image"><img src="../images/Foto-Perfil.jpg" alt="" /></a>
+                                <a href="#" class="image"><img src="${estudiante.imagen}" alt="" /></a>
                             </article>
                             <ul class="contact">
                                 <li class="fa-user"><c:out value="${estudiante.nombre} ${estudiante.apellido}" /></li>
@@ -105,7 +105,7 @@
                             </ul>
                         </div>
                         <ul class="text-center actions">
-                            <li class=""><a href="#" class="button">Configuración</a></li>
+                            <li class=""><a href="#" onclick="redirect('config.jsp')" class="button">Configuración</a></li>
                         </ul>
                     </section>
 
@@ -117,8 +117,8 @@
                         <p class="text-justify">Poorlearn es un objeto virtual de aprendizaje diseñado para fortalecer y facilitar el aprendizaje de los estudiantes del Programa de Ingeniería de Sistemas de la Universidad Francisco de Paula Santander en el curso de Programación orientada a objetos II; El cual ofrecerá las unidades de: Mecanismos de reutilización y JDBC: Base de datos desde Java.</p>
                         <ul class="contact">
                             <li class="fa-envelope-o">Marlon Yesid Guerrero Jimenez<br>Marlonyesidgj@ufps.edu.co</li>
-                            <li class="fa-envelope-o">Cristian Camilo Arevalo Gutierrez<br>Cristiancamiloag@ufps.edu.co</li>
-                            <li class="fa-envelope-o">MSc. Carmen Janeth Parada<br>Janethpc@ufps.edu.co</li>
+                            <li class="fa-envelope-o">Pedro Alexis Ruiz Martinez<br>Pedroalexisrm@ufps.edu.co</li>
+                            <li class="fa-envelope-o">MSc. Jairo Alberto Fuentes Camargo<br>Fuentejairo@ufps.edu.co</li>
                         </ul>
                     </section>
 

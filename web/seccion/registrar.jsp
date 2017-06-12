@@ -176,8 +176,8 @@
                             <h4 class="fh5co-footer-lead ">Contactos</h4>
                             <ul class="fh5co-list-check">
                                 <li>Marlon Yesid Guerrero Jimenez <br>Marlonyesidgj@ufps.edu.co</li>
-                                <li>Cristian Camilo Arevalo Gutierrez<br>Cristiancamiloag@ufps.edu.co</li>
-                                <li>MSc. Carmen Janeth Parada<br>Janethpc@ufps.edu.co</li>
+                                <li>Pedro Alexis Ruiz Martinez<br>Pedroalexisrm@ufps.edu.co</li>
+                                <li>MSc. Jairo Alberto Fuentes Camargo<br>Fuentejairo@ufps.edu.co</li>
 
                             </ul>
                         </div>

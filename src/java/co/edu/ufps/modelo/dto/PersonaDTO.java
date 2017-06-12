@@ -14,7 +14,15 @@ import java.io.Serializable;
 public class PersonaDTO implements Serializable {
 
     private int codigo;
-    private String nombre, apellido, correo, contrasena, celular;
+    private String nombre, apellido, correo, contrasena, celular, imagen;
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
     private TipoUsuarioDTO tipo;
 
     public TipoUsuarioDTO getTipo() {
