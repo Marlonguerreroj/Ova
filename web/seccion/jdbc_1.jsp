@@ -14,6 +14,7 @@
                 JDBC es una API de datos sólo para el lenguaje de programación Java además de que JDBC soporta 
                 las funciones de Database Toolbox mientras que ODBC no.</p>
             <h2>Entonces, ¿por qué no usar simplemente ODBC desde Java?</h2>
+            
             <p class="text-justify">¿Qué es JDBC?</p>
 
         </div>
