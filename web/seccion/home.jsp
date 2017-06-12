@@ -73,8 +73,8 @@
                             </li>
 
                             <li><strong>JDBC: Bases de Datos desde Java</strong></li>
-                            <li><a href="#">Qué es JDBC</a></li>
-                            <li><a href="#">JDBC Vs ODBC</a></li>
+                            <li><a onclick="redirect('jdbc.jsp')">Qué es JDBC</a></li>
+                            <li><a onclick="redirect('jdbc_1.jsp')">JDBC Vs ODBC</a></li>
                             <li>
                                 <span class="opener">Clases y métodos de JDBC</span>
                                 <ul>
