@@ -10,7 +10,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
         <link rel="stylesheet" href="../assets/css/main.css" />
-
+        <link rel="stylesheet" href="../assets/css/bootstrap.css">
+        <link rel="shortcut icon" href="../images/ico.ico">
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     </head>
@@ -57,18 +58,18 @@
                                     <li><a onclick="redirect('herencia00.jsp')">Introducción</a></li>
                                     <li><a onclick="redirect('herencia01.jsp')">Herencia y Ocultamiento de la Información</a></li>
                                     <li><a onclick="redirect('herencia02.jsp')">Redefinición o sobre escritura de características</a></li>
-                                    <li><a href="#">Herencia y creación, Polimorfismo</a></li>
-                                    <li><a href="#">Herencia y Sistema de tipos</a></li>
-                                    <li><a href="#">Ligadura dinámica</a></li>
-                                    <li><a href="#">Clase Object y Clases abstractas</a></li>
+                                    <li><a onclick="redirect('herencia03.jsp')">Herencia y creación, Polimorfismo</a></li>
+                                    <li><a onclick="redirect('herencia04.jsp')">Herencia y Sistema de tipos</a></li>
+                                    <li><a onclick="redirect('herencia05.jsp')">Ligadura dinámica</a></li>
+                                    <li><a onclick="redirect('herencia06.jsp')">Clase Object y Clases abstractas</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <span class="opener">Paquetes e Interfaces en JAVA</span>
                                 <ul>                                    
-                                    <li><a href="#">Definición e Introducción Interfaces</a></li>
-                                    <li><a href="#">Implementación de Interface</a></li>
-                                    <li><a href="#">Aplicación</a></li>
+                                    <li><a onclick="redirect('interface00.jsp')">Definición e Introducción Interfaces</a></li>
+                                    <li><a onclick="redirect('interface01.jsp')">Implementación de Interface</a></li>
+                                    <li><a onclick="redirect('interface02.jsp')">Aplicación</a></li>
                                 </ul>
                             </li>
 
@@ -139,6 +140,7 @@
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="../assets/js/main.js"></script>
         <script src="../assets/js/javascript.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     </body>
 </html>

@@ -22,7 +22,7 @@
                     <p>Se añade nueva funcionalidad al comportamiento heredado. La palabra reservada Super se debe utilizar para el refinamiento de métodos.</p>
                 </dd>
             </dl>
-
+            <a data-toggle="modal" data-target="#myModal" class="button special fit small">Video complementario</a>
         </div>
     </div>
     <div class="row">
@@ -33,6 +33,7 @@
     private String nombre;
     private String apellidos;
     private int edad;
+    private String descripcion;
     
     public Persona (String nombre, String apellidos, int edad) {
         this.nombre = nombre;
@@ -42,6 +43,7 @@
     public String getNombre () { return nombre;  }
     public String getApellidos () { return apellidos;  }
     public int getEdad () { return edad;   }
+    public String getDescripcion(){return descripcion;}
 }</code>
             </pre>
         </div>
@@ -67,10 +69,26 @@
         </div>
     </div>
 </section>
-<button id="rem" class="pull-right buttons btn btn-primary">Siguiente</button>
+<button id="rem" onclick="redirect('herencia03.jsp')" class="pull-right buttons btn btn-primary">Siguiente</button>
 <button onclick="redirect('herencia01.jsp')" id="rem" class="pull-left buttons btn btn-primary">Anterior</button>
 <div class="text-center">
     <button id="rem" class=" buttons btn btn-primary">Actividad</button>
 </div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Video complementario</h4>
+            </div>
+            <div class="modal-body">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/CYNLhg42O9c" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
