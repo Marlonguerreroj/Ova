@@ -1,33 +1,53 @@
 <!-- Banner -->
 <section style="padding-top: 6em">
     <header class="main">
-        <h1>JDBC: Bases de Datos desde Java</h1>
-        <p>¿Qué es JDBC?</p>
+        <h1>Clases y Métodos de JDBC</h1>
+        <p>Establecer Conexión</p>
     </header>
     <div class="row">
         <div class="6u 12u(medium)">
-            <p class="text-justify">JDBC es una API que permite la ejecución de operaciones sobre bases de datos desde 
-                el lenguaje de programación Java, independientemente del sistema operativo donde se ejecute o de 
-                la base de datos a la cual se accede, utilizando el dialecto SQL del modelo de base de datos que 
-                se utilice.</p>
-            <p class="text-justify">Las interfaces están integradas en la API estándar de J2SE:</p>
-            <ul>
-                <li>
-                    Paquete java.sql
-                </li>
-                <li>
-                    Paquete javax.sql
-                </li>
-            </ul>
-            <p class="text-justify">Pero se necesita adicionalmente un driver JDBC, que es una implementación de dichas 
-                interfaces, cada uno de estos drivers es específico para cada programa gestor de base de datos y en la mayoría 
-                de los casos es proporcionado por el proveedor del gestor de bases de datos.</p>
+            <p class="text-justify">Las conexiones a base de datos se realizan por medio del DriverManager
+                y el Driver (Controlador) específico para conectarnos al motor de base de datos que 
+                utilizaremos en nuestro proyecto.</p>
+            <p class="text-justify">Como primer paso debemos instanciar el controlador que utilizaremos 
+                pasando como parámetro un String con el nombre de dicho controlador, para nuestro 
+                ejemplo nos conectaremos a una base de datos MySQL.</p>
+            <pre>
+                <code>Class.forName("com.mysql.jdbc.Driver").newInstance();</code>
+            </pre>
+            <p class="text-justify">De esta manera ya queda instanciado nuestro controlador de base de datos,
+                luego la clase DriveManager será la encargada de abrir la conexión a base de datos mediante 
+                el método getConnection el cual se sobrecarga de tal forma que puede recibir de 3 manera 
+                diferentes los parámetros de conexión, veremos el más común por su facilidad de uso, 
+                en él debemos especificar el servidor de nuestra base de datos, el usuario y contraseña 
+                de nuestra base de datos.</p>
+            <p class="text-justify">La url se encuentra formada de la manera "jdbc: subprotocol:subname" donde
+                el subprotocolo es el nombre de nuestro gestor de base de datos y el subname el 
+                nombre de nuestro servidor junto con el nombre de nuestra base de datos.
+            </p>
+            <pre><code>String db_url = "jdbc:mysql://localhost/ufps_86";</code>
+            </pre>
 
         </div>
         <div class="6u text-center 12u(medium)">
-            <span class="image object">
-                <img src="../images/herencia.png" alt="" />
-            </span> 
+            <p class="text-justify">Luego de la url de conexión defininimos las credenciales de 
+                nuestro usuario de base de datos:</p>
+            <pre>
+                <code>String db_usuario = "root";
+String db_contrasena = "12345";
+                </code>
+            </pre>
+            <p class="text-justify">Por último sólo nos resta llamar al método getConnection para establecer la conexión a 
+                nuestra base de datos.</p>
+            <pre>
+                <code>try {
+    Connection conexion = DriverManager.getConnection(db_url, db_usuario, db_contrasena);
+    }catch (SQLException e){
+         System.out.println( "ERROR: no se ha podido conectar" );
+}</code>
+            </pre>
+            <p class="text-justify">Cabe recordar que se debe capturar una SQLException por si ocurre un error al intentar 
+                realizar la conexión, de esta manera quedaría establecida la conexión.</p>
         </div>
     </div> 
 </section>
@@ -35,33 +55,33 @@
 <!-- Section -->
 <section style="padding-top: 6em">
     <header class="major">
-        <h2>Algunas perspectivas</h2>
+        <h2>Ejemplo Completo:</h2>
     </header>
-    <div class="features">
-        <article>
-            <span class="icon fa-book"></span>
-            <div class="content">
-                <p class="text-justify">"Recuerda: no eres torpe, no importa lo que digan esos libros. Los torpes de verdad son gente que, creyéndose expertos técnicos, no podrían diseñar hardware y software manejable por usuarios normales aunque la vida les fuera en ello"<br>- Walter Mossberg</p>
-            </div>
-        </article>
-        <article>
-            <span class="icon fa-flag-o"></span>
-            <div class="content">
-                <p class="text-justify">"En software, muy raramente partimos de requisitos con sentido. Incluso teniéndolos, la única medida del éxito que importa es si nuestra solución resuelve la cambiante idea que el cliente tiene de lo que es su problema"<br>- Jeff Atwood</p>
-            </div>
-        </article>
-        <article>
-            <span class="icon fa-quote-left"></span>
-            <div class="content">
-                <p class="text-justify">"Codifica siempre como si la persona que finalmente mantendrá tu código fuera un psicópata violento que sabe dónde vives"<br>- Martin Golding</p>
-            </div>
-        </article>
-        <article>
-            <span class="icon fa-users"></span>
-            <div class="content">
-                <p>"No puedes crear un gran software sin un gran equipo, y la mayoría de los equipos de desarrollo se comportan como familias disfuncionales"<br>- Jim McCarthy</p>
-            </div>
-        </article>
+    <div class="row">
+        <div class="12u 12u(medium)">
+            <pre>
+                <code>Connection conexion;
+String db_url = "jdbc:mysql://localhost/miBD";
+String db_driver = "com.mysql.jdbc.Driver";
+String db_usuario = "root";
+String db_contrasena = "12345";
+
+try {
+            Class.forName(db_driver).newInstance();
+            conexion = DriverManager.getConnection(db_url, db_usuario, db_contrasena);
+        } catch (SQLException e) {
+            System.out.println( "ERROR: no se ha podido conectar" );
+        } catch (ClassNotFoundException e1) {
+            System.out.println( "ERROR: no se encontró el Driver" );
+        } catch (InstantiationException ex) {
+            System.out.println( "ERROR: error al instanciar el Driver" );
+        } catch (IllegalAccessException ex) {
+            System.out.println( "ERROR: Acceso ilegal al Driver" );
+        }
+
+</code>
+            </pre>
+        </div>
     </div>
 </section>  
 <button onclick="redirect('herencia01.jsp')" id="rem" class="pull-right buttons btn btn-primary">Siguiente</button>
