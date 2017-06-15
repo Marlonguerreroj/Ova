@@ -17,7 +17,7 @@
         <meta name="author" content="Ing Sistemas - UFPS" />
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="shortcut icon" href="../images/ico.ico">
 
         <!-- Google Webfonts -->
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
