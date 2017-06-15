@@ -74,17 +74,17 @@
                             </li>
 
                             <li><strong>JDBC: Bases de Datos desde Java</strong></li>
-                            <li><a href="#">Qué es JDBC</a></li>
-                            <li><a href="#">JDBC Vs ODBC</a></li>
+                            <li><a onclick="redirect('jdbc.jsp')">Qué es JDBC</a></li>
+                            <li><a onclick="redirect('jdbc_1.jsp')">JDBC Vs ODBC</a></li>
                             <li>
                                 <span class="opener">Clases y métodos de JDBC</span>
                                 <ul>
-                                    <li><a href="#">Establecer Conexión</a></li>
-                                    <li><a href="#">Crear Sentencia</a></li>
-                                    <li><a href="#">Ejecutar Sentencia</a></li>
-                                    <li><a href="#">Procesar Resultados</a></li>
-                                    <li><a href="#">Finalizar Sentencia</a></li>
-                                    <li><a href="#">Cerrar Conexión</a></li>
+                                    <li><a onclick="redirect('jdbc_2.jsp')">Establecer Conexión</a></li>
+                                    <li><a onclick="redirect('jdbc_3.jsp')">Crear Sentencia</a></li>
+                                    <li><a onclick="redirect('jdbc_4.jsp')">Ejecutar Sentencia</a></li>
+                                    <li><a onclick="redirect('jdbc_5.jsp')">Procesar Resultados</a></li>
+                                    <li><a onclick="redirect('jdbc_6.jsp')">Finalizar Sentencia</a></li>
+                                    <li><a onclick="redirect('jdbc_7.jsp')">Cerrar Conexión</a></li>
                                 </ul>
                             </li>
 
