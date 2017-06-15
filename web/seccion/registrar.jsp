@@ -13,7 +13,7 @@
         <title>Poolearn</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Ova programaciÃ³n orientada a objetos" />
+        <meta name="description" content="Ova programación orientada a objetos" />
         <meta name="keywords" content="Programacion,Ova,Ufps" />
         <meta name="author" content="Ing Sistemas - UFPS" />
 
@@ -102,9 +102,10 @@
 
                         <div class="col-md-2">
                             <label for="tipo">Tipo de usuario</label>
-                            <select id="tipo" disabled name="tipo" class="form-control input-lg">
+                            <select id="tipo" disabled  class="form-control input-lg">
                                 <option selected value="estudiante">Estudiante</option>
                             </select>
+                            <input name="tipo" value="3" hidden>
                         </div>
                         <div id="divContrasena" class="col-md-5">
                             <label for="contrasena">Contraseña</label>

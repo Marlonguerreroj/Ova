@@ -6,7 +6,7 @@
         <div class="row" style="padding-bottom: 10px">
             <div class="3u 6u(medium) 8u(small) mini-posts">
                 <article>
-                    <a class="image"><img src="${estudiante.imagen}" alt="" /></a>
+                    <a class="image"><img src="${persona.imagen}" alt="" /></a>
                 </article>
                 <input href="#" name="file" id="file" type="file" value="Seleccionar foto"/>
             </div>
@@ -16,27 +16,27 @@
 
             <div class="2u 6u(medium) 12u(small)">
                 <label for="codigo">Código</label>
-                <input type="text" disabled name="codigo" value="${estudiante.codigo}" id="codigo" />
+                <input type="text" disabled name="codigo" value="${persona.codigo}" id="codigo" />
             </div>
             <div class="5u 6u(medium) 12u(small)">
                 <label for="nombre">Nombre</label>
-                <input type="text" value="${estudiante.nombre}" name="nombre" id="nombre" />
+                <input type="text" value="${persona.nombre}" name="nombre" id="nombre" />
             </div>
             <div class="5u 6u(medium) 12u(small)">
                 <label for="apellido">Apellido</label>
-                <input type="text" value="${estudiante.apellido}" name="apellido" id="apellido" />
+                <input type="text" value="${persona.apellido}" name="apellido" id="apellido" />
             </div> 
             <div class="2u 6u(medium) 12u(small)">
                 <label for="apellido"># Celular</label>
-                <input type="text" value="${estudiante.celular}" name="celular" id="celular" />
+                <input type="text" value="${persona.celular}" name="celular" id="celular" />
             </div>
             <div class="5u 6u(medium) 12u(small)">
                 <label for="correo">Correo electrónico</label>
-                <input type="text" disabled name="correo" value="${estudiante.correo}" id="correo" />
+                <input type="text" disabled name="correo" value="${persona.correo}" id="correo" />
             </div>
             <div class="5u 6u(medium) 12u(small)">
                 <label for="tUsuario">Tipo usuario</label>
-                <input type="text" value="${estudiante.tipo.tipo}" disabled id="tUsuario" />
+                <input type="text" value="${persona.tipo.tipo}" disabled id="tUsuario" />
                 <input hidden name="sendAct" value="true" />
             </div>
         </div>

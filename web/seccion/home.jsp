@@ -1,5 +1,5 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:if test = "${estudiante == null}">
+<c:if test = "${persona == null}">
     <c:redirect url = "../index.html"/>
 </c:if>
 <!DOCTYPE HTML>
@@ -26,7 +26,7 @@
 
                     <!-- Header -->
                     <header id="header">
-                        <h1 class="logo"><strong><c:out value="Bienvenido "/></strong><c:out value="${estudiante.nombre} ${estudiante.apellido}"/> </h1>
+                        <h1 class="logo"><strong><c:out value="Bienvenido "/></strong><c:out value="${persona.nombre} ${persona.apellido}"/> </h1>
                         <ul class="icons">
                             <li><a style="font-size: 25px" href="../Control?out=true" class="icon fa-sign-out"></a></li>
                         </ul>
@@ -98,11 +98,14 @@
                         </header>
                         <div class="mini-posts">
                             <article>
-                                <a href="#" class="image"><img src="${estudiante.imagen}" alt="" /></a>
+                                <a href="#" class="image"><img src="${persona.imagen}" alt="" /></a>
                             </article>
                             <ul class="contact">
-                                <li class="fa-user"><c:out value="${estudiante.nombre} ${estudiante.apellido}" /></li>
-                                <li class="fa-envelope-o"><c:out value="${estudiante.correo}"/></li>
+                                <li class="fa-user"><c:out value="${persona.nombre} ${persona.apellido}" /></li>
+                                <li class="fa-envelope-o"><c:out value="${persona.correo}"/></li>
+                                    <c:if test = "${persona.tipo.id != 3}">
+                                    <li class="fa-cog"><a href="admin/principal.jsp" class="button special fit small">Versión Admin</a> </li>
+                                    </c:if>
                             </ul>
                         </div>
                         <ul class="text-center actions">
@@ -115,7 +118,7 @@
                         <header class="major">
                             <h2>Poolearn</h2>
                         </header>
-                        <p class="text-justify">Poorlearn es un objeto virtual de aprendizaje diseñado para fortalecer y facilitar el aprendizaje de los estudiantes del Programa de Ingeniería de Sistemas de la Universidad Francisco de Paula Santander en el curso de Programación orientada a objetos II; El cual ofrecerá las unidades de: Mecanismos de reutilización y JDBC: Base de datos desde Java.</p>
+                        <p class="text-justify">Poorlearn es un objeto virtual de aprendizaje diseñado para fortalecer y facilitar el aprendizaje de los personas del Programa de Ingeniería de Sistemas de la Universidad Francisco de Paula Santander en el curso de Programación orientada a objetos II; El cual ofrecerá las unidades de: Mecanismos de reutilización y JDBC: Base de datos desde Java.</p>
                         <ul class="contact">
                             <li class="fa-envelope-o">Marlon Yesid Guerrero Jimenez<br>Marlonyesidgj@ufps.edu.co</li>
                             <li class="fa-envelope-o">Pedro Alexis Ruiz Martinez<br>Pedroalexisrm@ufps.edu.co</li>
