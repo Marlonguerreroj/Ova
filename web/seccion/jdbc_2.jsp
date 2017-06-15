@@ -84,4 +84,5 @@ try {
         </div>
     </div>
 </section>  
-<button onclick="redirect('herencia01.jsp')" id="rem" class="pull-right buttons btn btn-primary">Siguiente</button>
+<button onclick="redirect('jdbc_3.jsp')" id="rem" class="pull-right buttons btn btn-primary">Siguiente</button>
+<button onclick="redirect('jdbc_1.jsp')" id="rem" class="pull-left buttons btn btn-primary">Anterior</button>
