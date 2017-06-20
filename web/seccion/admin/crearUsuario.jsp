@@ -2,7 +2,7 @@
 <section id="cont" class="content">
 
 
-    <div class="box box-danger">
+    <div class="box box-primary">
         <div class="box-header" >
             <h3 class="box-title" >Crear Usuario</h3>
         </div>
@@ -30,6 +30,7 @@
                         <select id="tipo" name="tipo"  class="form-control">
                             <option selected value="1">Administrador</option>
                             <option value="2">Docente</option>
+                            <option value="3">Estudiante</option>
                         </select>
                     </div>
                     <div id="divContrasena" class="col-md-5">

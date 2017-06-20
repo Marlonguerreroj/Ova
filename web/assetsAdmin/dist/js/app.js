@@ -55,9 +55,7 @@ $.AdminLTE.options = {
   sidebarExpandOnHover: false,
   //BoxRefresh Plugin
   enableBoxRefresh: true,
-  //Bootstrap.js tooltip
-  enableBSToppltip: true,
-  BSTooltipSelector: "[data-toggle='tooltip']",
+ 
   //Enable Fast Click. Fastclick.js creates a more
   //native touch experience with touch devices. If you
   //choose to enable the plugin, make sure you load the script
@@ -185,13 +183,7 @@ $(function () {
     $.AdminLTE.pushMenu.activate(o.sidebarToggleSelector);
   }
 
-  //Activate Bootstrap tooltip
-  if (o.enableBSToppltip) {
-    $('body').tooltip({
-      selector: o.BSTooltipSelector,
-      container: 'body'
-    });
-  }
+
 
   //Activate box widget
   if (o.enableBoxWidget) {

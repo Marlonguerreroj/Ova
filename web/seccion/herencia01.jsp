@@ -22,7 +22,7 @@
 <button onclick="redirect('herencia02.jsp')" id="rem" class="pull-right buttons btn btn-primary">Siguiente</button>
 <button onclick="redirect('herencia00.jsp')" id="rem" class="pull-left buttons btn btn-primary">Anterior</button>
 <div class="text-center">
-<button id="rem" class=" buttons btn btn-primary">Actividad</button>
+<button onclick="redirect('ActH01.jsp')" id="rem" class=" buttons btn btn-primary">Actividad</button>
 </div>
 
 

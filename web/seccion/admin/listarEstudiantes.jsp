@@ -1,40 +1,77 @@
-<section class="content-header">
-    <h1>
-        Estudiantes matriculados
-        <small>it all starts here</small>
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
-    </ol>
-</section>
 
-<!-- Main content -->
-<section class="content">
+<section id="cont" class="content">
 
-    <!-- Default box -->
-    <div class="box">
-        <div class="box-header with-border">
-            <h3 class="box-title">Title</h3>
-
+    <div class="box box-primary">
+        <div class="box-header" >
+            <h3 class="box-title" >Estudiantes Matriculados</h3>
             <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                    <i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                    <i class="fa fa-times"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
             </div>
         </div>
-        <div class="box-body">
-            Start creating your amazing application!
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-            Footer
-        </div>
-        <!-- /.box-footer-->
-    </div>
-    <!-- /.box -->
 
+        <div class="box-body">
+            <div class="table-responsive">
+                <table id="listEst" class="table table-striped">
+                    <tbody><tr>
+                            <th style="width: 10px">#</th>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Celular</th>
+                        </tr>
+
+                    </tbody></table></div>
+        </div>
+    </div>
+    <div class="box box-primary">
+        <div class="box-header" >
+            <h3 class="box-title" >Docentes Inscriptos</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="box-body">
+            <div class="table-responsive">
+                <table id="listDoc" class="table table-striped">
+                    <tbody><tr>
+                            <th style="width: 10px">#</th>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Celular</th>
+                        </tr>
+
+                    </tbody></table></div>
+        </div>
+    </div>
+    <div class="box box-primary">
+        <div class="box-header" >
+            <h3 class="box-title" >Administradores Registrados</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="box-body">
+            <div class="table-responsive">
+                <table id="listAdm" class="table table-striped">
+                    <tbody><tr>
+                            <th style="width: 10px">#</th>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Celular</th>
+                        </tr>
+
+                    </tbody></table></div>
+        </div>
+    </div>
 </section>
-<!-- /.content -->
+

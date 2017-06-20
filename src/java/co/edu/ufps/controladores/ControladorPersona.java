@@ -7,12 +7,14 @@ package co.edu.ufps.controladores;
 
 import co.edu.ufps.modelo.Fachada;
 import co.edu.ufps.modelo.dto.PersonaDTO;
+import com.google.gson.Gson;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -160,7 +162,44 @@ public class ControladorPersona extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    public void listarPersonas(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ArrayList<PersonaDTO> list;
+        Fachada f = new Fachada();
+        PrintWriter out = response.getWriter();
+        try {
+            list = f.listarPersonas();
+            Gson g = new Gson();
+            String rel = g.toJson(list);
+            out.write(rel);
+        } catch (Exception e) {
+
+        }
+    }
+
+    public void cambiarContrasena(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String aCont = request.getParameter("aCont");
+        String nCont = request.getParameter("nCont");
+        String n2Cont = request.getParameter("n2Cont");
+        boolean exito = false;
+        PrintWriter out = response.getWriter();
+
+        if (aCont.equals(persona.getContrasena()) && nCont.equals(n2Cont)) {
+            try {
+                Fachada f = new Fachada();
+                exito = f.cambiarContrasena(nCont, persona.getCodigo());
+                if(exito){
+                    persona = f.iniciarSesion(persona.getCodigo(), nCont);
+                }
+            } catch (Exception e) {
+            }
+        }
+        out.write("" + exito);
+
+    }
+
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -178,6 +217,8 @@ public class ControladorPersona extends HttpServlet {
             iniciarSesion(request, response);
         } else if (request.getParameter("out") != null) {
             cerrarSesion(request, response);
+        } else if (request.getParameter("lstPer") != null) {
+            listarPersonas(request, response);
         }
 
     }
@@ -197,6 +238,8 @@ public class ControladorPersona extends HttpServlet {
             registrarPersona(request, response);
         } else if (request.getParameter("send2") != null) {
             iniciarSesion(request, response);
+        } else if (request.getParameter("changePass") != null) {
+            cambiarContrasena(request, response);
         } else if (request.getPart("file") != null) {
             actualizarDatos(request, response);
         }

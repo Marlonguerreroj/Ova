@@ -42,7 +42,50 @@
         </div>
         <div class="text-center" style="padding-top:15px">
             <a class="button" onclick="location.reload()">Cancelar</a>
+            <a data-toggle="modal" data-target="#myModalRestablecerClave" class="button">Restablecer contraseña</a>
             <button class="button">Actualizar</button>
         </div>
     </form>
 </section>
+
+
+<form id="actContra" class="form-horizontal">
+    <div class="modal  fade" id="myModalRestablecerClave" role="dialog" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        <i class="fa fa-lock"></i> Restablecimiento de clave personal
+                    </h4>
+                </div>
+                <div id="bodyM" class="modal-body"> 
+                    <div class="clearfix">
+                        <div id="divaCont" class="form-group col-md-12">
+                            <label>Contraseña Actual</label>
+                            <input type="password" data-toggle="tooltip" data-placement="bottom" data-trigger="focus" title="Ingresa una combinación de al menos seis caracteres" id="aCont" name="aCont" class="form-control">
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div id="divnCont" class="form-group col-md-12">
+                            <label>Contraseña Nueva</label>
+                            <input type="password" data-toggle="tooltip" data-placement="bottom" data-trigger="focus" title="Ingresa una combinación de al menos seis caracteres" id="nCont" name="nCont" class="form-control">
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div id="divn2Cont" class="form-group col-md-12">
+                            <label>Confirmar Contraseña Nueva</label>
+                            <input type="password" data-toggle="tooltip" data-placement="bottom" data-trigger="focus" title="Ingresa una combinación de al menos seis caracteres" disabled="" id="n2Cont" name="n2Cont" class="form-control">
+                            <input type="hidden" name="changePass" value="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="button pull-left" data-dismiss="modal">Cerrar</a>
+                    <button type="submit" class="button special">
+                        <i class="fa fa-paper-plane"></i> Restablecer
+                    </button>
+                </div>            
+            </div>
+        </div>
+    </div>
+</form>

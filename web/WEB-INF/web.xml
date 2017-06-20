@@ -9,9 +9,17 @@
             <file-size-threshold>5242880</file-size-threshold>
         </multipart-config>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorActividad</servlet-name>
+        <servlet-class>co.edu.ufps.controladores.ControladorActividad</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorPersona</servlet-name>
         <url-pattern>/Control</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorActividad</servlet-name>
+        <url-pattern>/Actividad</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

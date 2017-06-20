@@ -39,7 +39,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="hold-transition skin-red-light sidebar-mini">
+    <body onload="redirect('datosPersonales.jsp')" class="hold-transition skin-red-light sidebar-mini">
         <!-- Site wrapper -->
         <div class="wrapper">
 
@@ -84,11 +84,9 @@
 
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Configuración</a>
-                                        </div>
+
                                         <div class="pull-right">
-                                            <a href="../../Control?out=true" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                                            <a href="../../Control?out=true" class="btn btn-default btn-flat"><i class="fa fa-power-off"></i> Cerrar Sesión</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -122,8 +120,13 @@
                     <ul class="sidebar-menu">
                         <li class="header">NAVEGACIÓN PRINCIPAL</li>
                         <li>
+                            <a onclick="redirect('datosPersonales.jsp')">
+                                <i class="fa fa-users"></i> <span>Datos Personales</span>
+                            </a>
+                        </li>
+                        <li>
                             <a onclick="redirect('listarEstudiantes.jsp')">
-                                <i class="fa fa-users"></i> <span>Listar Estudiantes</span>
+                                <i class="fa fa-users"></i> <span>Listar Inscriptos</span>
                             </a>
                         </li>
                         <li>
@@ -134,6 +137,11 @@
                         <li>
                             <a onclick="redirect('crearActividades.jsp')">
                                 <i class="fa fa-book"></i> <span>Crear Actividades</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="redirect('listarActividades.jsp')">
+                                <i class="fa fa-list"></i> <span>Listar Actividades</span>
                             </a>
                         </li>
                         <li>
@@ -150,7 +158,6 @@
             <!-- Content Wrapper. Contains page content -->
             <div id="remp" class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                
             </div>
             <!-- /.content-wrapper -->
 
@@ -167,19 +174,25 @@
         </div>
         <!-- ./wrapper -->
 
-        <!-- jQuery 2.2.3 -->
-        <script src="../../assetsAdmin/plugins/jQuery/jquery-2.2.3.min.js"></script>
-        <!-- Bootstrap 3.3.6 -->
-        <script src="../../assetsAdmin/bootstrap/js/bootstrap.min.js"></script>
-        <!-- SlimScroll -->
-        <script src="../../assetsAdmin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-        <!-- FastClick -->
-        <script src="../../assetsAdmin/plugins/fastclick/fastclick.js"></script>
-        <!-- AdminLTE App -->
-        <script src="../../assetsAdmin/dist/js/app.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="../../assetsAdmin/dist/js/demo.js"></script>
+        <!-- jQuery -->
+        <script src="../../js/jquery.min.js"></script>
+        <!-- jQuery Easing -->
+        <script src="../../js/jquery.easing.1.3.js"></script>
+        <!-- Bootstrap -->
+        <script src="../../js/bootstrap.min.js"></script>
+        <!-- Owl carousel -->
+        <script src="../../js/owl.carousel.min.js"></script>
+        <!-- Waypoints -->
+        <script src="../../js/jquery.waypoints.min.js"></script>
+        <!-- Magnific Popup -->
+        <script src="../../js/jquery.magnific-popup.min.js"></script>
+        <!-- Main JS -->
+        <script src="../../js/main.js"></script>
         <script src="../../assetsAdmin/dist/js/javascript.js"></script>
-        <script src="../../js/javascript.js"></script>
+        <script src="../../assetsAdmin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <script src="../../assetsAdmin/plugins/fastclick/fastclick.js"></script>
+        <script src="../../assetsAdmin/dist/js/app.js"></script>
+
+
     </body>
 </html>

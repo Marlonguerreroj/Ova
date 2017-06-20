@@ -1,5 +1,5 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:if test = "${estudiante != null}">
+<c:if test = "${persona != null}">
     <c:redirect url = "home.jsp"/>
 </c:if>
 <!DOCTYPE html>

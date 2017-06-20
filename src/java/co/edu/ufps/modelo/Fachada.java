@@ -5,9 +5,13 @@
  */
 package co.edu.ufps.modelo;
 
+import co.edu.ufps.modelo.dao.ActividadDAO;
 import co.edu.ufps.modelo.dao.PersonaDAO;
 import co.edu.ufps.modelo.dto.PersonaDTO;
+import co.edu.ufps.modelo.dto.PreguntaDTO;
+import co.edu.ufps.modelo.dto.TemaDTO;
 import co.edu.ufps.modelo.dto.TipoUsuarioDTO;
+import java.util.ArrayList;
 
 /**
  *
@@ -30,8 +34,8 @@ public class Fachada {
         dto.setContrasena(contrasena);
         return dao.iniciarSesion(dto);
     }
-    
-    public boolean actualizarPersona(String nombre,String apellido,String celular,String imagen, int codigo) throws Exception{
+
+    public boolean actualizarPersona(String nombre, String apellido, String celular, String imagen, int codigo) throws Exception {
         PersonaDAO dao = new PersonaDAO();
         PersonaDTO dto = new PersonaDTO();
         dto.setNombre(nombre);
@@ -40,5 +44,42 @@ public class Fachada {
         dto.setImagen(imagen);
         dto.setCodigo(codigo);
         return dao.actualizarPersona(dto);
+    }
+
+    public ArrayList<PersonaDTO> listarPersonas() throws Exception {
+        PersonaDAO dao = new PersonaDAO();
+        return dao.listarPersonas();
+    }
+    
+    public boolean cambiarContrasena(String contrasena,int codigo) throws Exception{
+        PersonaDAO dao = new PersonaDAO();
+        PersonaDTO dto = new PersonaDTO();
+        dto.setContrasena(contrasena);
+        dto.setCodigo(codigo);
+        return dao.cambiarContrasena(dto);
+    }
+    
+    public ArrayList<TemaDTO> listarTemas() throws Exception{
+        ActividadDAO dao = new ActividadDAO();
+        return dao.listarTemas();
+    }
+    
+    public boolean registrarPregunta(String nombre,String opcion1,String opcion2,String opcion3,String opcion4,
+            String respuesta,String id) throws Exception{
+        ActividadDAO dao = new ActividadDAO();
+        PreguntaDTO dto = new PreguntaDTO();
+        dto.setNombre(nombre);
+        dto.setOpcion1(opcion1);
+        dto.setOpcion2(opcion2);
+        dto.setOpcion3(opcion3);
+        dto.setOpcion4(opcion4);
+        dto.setRespuesta(respuesta);
+        dto.getTema().setId(id);
+        return dao.registrarPregunta(dto);
+    }
+    
+    public ArrayList<PreguntaDTO> listarPreguntas(String tema) throws Exception{
+        ActividadDAO dao = new ActividadDAO();
+        return dao.listarPreguntas(tema);
     }
 }
