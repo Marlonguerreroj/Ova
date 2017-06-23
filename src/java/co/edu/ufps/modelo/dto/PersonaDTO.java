@@ -13,11 +13,27 @@ import java.io.Serializable;
  */
 public class PersonaDTO implements Serializable {
 
-    private int codigo;
+    private int codigo, examen1, examen2;
     private String nombre, apellido, correo, contrasena, celular, imagen;
 
     public String getImagen() {
         return imagen;
+    }
+
+    public int getExamen1() {
+        return examen1;
+    }
+
+    public void setExamen1(int examen1) {
+        this.examen1 = examen1;
+    }
+
+    public int getExamen2() {
+        return examen2;
+    }
+
+    public void setExamen2(int examen2) {
+        this.examen2 = examen2;
     }
 
     public void setImagen(String imagen) {

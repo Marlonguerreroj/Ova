@@ -30,5 +30,5 @@ DocenteCatedra docenteCatedra = estudiante; //No es valido
 <button id="rem" onclick="redirect('herencia05.jsp')" class="pull-right buttons btn btn-primary">Siguiente</button>
 <button onclick="redirect('herencia03.jsp')" id="rem" class="pull-left buttons btn btn-primary">Anterior</button>
 <div class="text-center">
-    <button id="rem" class=" buttons btn btn-primary">Actividad</button>
+    <button onclick="redirect('ActH04.jsp')" id="rem" class=" buttons btn btn-primary">Actividad</button>
 </div>

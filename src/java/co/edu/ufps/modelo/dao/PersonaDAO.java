@@ -47,7 +47,7 @@ public class PersonaDAO {
     public PersonaDTO iniciarSesion(PersonaDTO dto) throws Exception {
         PersonaDTO rel = null;
         conn = Conexion.generarConexion();
-        PreparedStatement stmt = conn.prepareStatement("SELECT p.codigo, p.nombre,p.apellido, p.correo, p.contrasena, p.celular, p.id_tipo_usuario, t.tipo, p.imagen FROM persona as p INNER JOIN tipo_usuario as t on t.id = p.id_tipo_usuario "
+        PreparedStatement stmt = conn.prepareStatement("SELECT p.codigo, p.nombre,p.apellido, p.correo, p.contrasena, p.celular, p.id_tipo_usuario, t.tipo, p.imagen, p.examen1, p.examen2 FROM persona as p INNER JOIN tipo_usuario as t on t.id = p.id_tipo_usuario "
                 + " WHERE codigo = ? and contrasena = ?");
         stmt.setInt(1, dto.getCodigo());
         stmt.setString(2, dto.getContrasena());
@@ -63,6 +63,8 @@ public class PersonaDAO {
             rel.getTipo().setId(rs.getInt(7));
             rel.getTipo().setTipo(rs.getString(8));
             rel.setImagen(rs.getString(9));
+            rel.setExamen1(rs.getInt(10));
+            rel.setExamen2(rs.getInt(11));
         }
         return rel;
     }
@@ -101,7 +103,7 @@ public class PersonaDAO {
         ArrayList<PersonaDTO> list = new ArrayList<>();
         conn = Conexion.generarConexion();
         String nombre = "";
-        PreparedStatement stmt = conn.prepareStatement("SELECT p.codigo, p.nombre,p.apellido, p.correo, p.contrasena, p.celular, p.id_tipo_usuario, t.tipo, p.imagen FROM persona as p INNER JOIN tipo_usuario as t on t.id = p.id_tipo_usuario "
+        PreparedStatement stmt = conn.prepareStatement("SELECT p.codigo, p.nombre,p.apellido, p.correo, p.contrasena, p.celular, p.id_tipo_usuario, t.tipo, p.imagen, p.examen1, p.examen2 FROM persona as p INNER JOIN tipo_usuario as t on t.id = p.id_tipo_usuario "
                 + "");
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
@@ -115,6 +117,8 @@ public class PersonaDAO {
             rel.getTipo().setId(rs.getInt(7));
             rel.getTipo().setTipo(rs.getString(8));
             rel.setImagen(rs.getString(9));
+            rel.setExamen1(rs.getInt(10));
+            rel.setExamen2(rs.getInt(11));
             list.add(rel);
         }
         return list;
@@ -128,6 +132,60 @@ public class PersonaDAO {
             String update = "UPDATE persona set contrasena = ? where codigo = ?";
             stmt = conn.prepareStatement(update);
             stmt.setString(1, dto.getContrasena());
+            stmt.setInt(2, dto.getCodigo());
+
+            int total = stmt.executeUpdate();
+            if (total > 0) {
+                exito = true;
+            }
+            stmt.close();
+
+        } catch (Exception e) {
+
+        } finally {
+            try {
+                conn.close();
+            } catch (Exception ex) {
+            }
+        }
+        return exito;
+    }
+    
+    public boolean actualizarExamen1(PersonaDTO dto) throws Exception {
+        boolean exito = false;
+        conn = Conexion.generarConexion();
+        PreparedStatement stmt;
+        try {
+            String update = "UPDATE persona set examen1 = ? where codigo = ?";
+            stmt = conn.prepareStatement(update);
+            stmt.setInt(1, dto.getExamen1());
+            stmt.setInt(2, dto.getCodigo());
+
+            int total = stmt.executeUpdate();
+            if (total > 0) {
+                exito = true;
+            }
+            stmt.close();
+
+        } catch (Exception e) {
+
+        } finally {
+            try {
+                conn.close();
+            } catch (Exception ex) {
+            }
+        }
+        return exito;
+    }
+    
+    public boolean actualizarExamen2(PersonaDTO dto) throws Exception {
+        boolean exito = false;
+        conn = Conexion.generarConexion();
+        PreparedStatement stmt;
+        try {
+            String update = "UPDATE persona set examen2 = ? where codigo = ?";
+            stmt = conn.prepareStatement(update);
+            stmt.setInt(1, dto.getExamen2());
             stmt.setInt(2, dto.getCodigo());
 
             int total = stmt.executeUpdate();

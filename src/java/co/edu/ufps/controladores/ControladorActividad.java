@@ -48,6 +48,7 @@ public class ControladorActividad extends HttpServlet {
 
         }
     }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -72,9 +73,12 @@ public class ControladorActividad extends HttpServlet {
             response.setCharacterEncoding("UTF-8");
             out.write(rel);
         } catch (Exception e) {
+            e.printStackTrace();
 
         }
     }
+
+
 
     protected void registrarPregunta(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -88,7 +92,7 @@ public class ControladorActividad extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             Fachada f = new Fachada();
-            out.write(""+f.registrarPregunta(nombre, opcion1, opcion2, opcion3, opcion4, respuesta, id));
+            out.write("" + f.registrarPregunta(nombre, opcion1, opcion2, opcion3, opcion4, respuesta, id));
         } catch (Exception e) {
 
         }
@@ -108,7 +112,7 @@ public class ControladorActividad extends HttpServlet {
             throws ServletException, IOException {
         if (request.getParameter("lstTema") != null) {
             listarTemas(request, response);
-        }else if (request.getParameter("lstPreg") != null) {
+        } else if (request.getParameter("lstPreg") != null) {
             listarPreguntas(request, response);
         }
     }

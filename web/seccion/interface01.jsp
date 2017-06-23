@@ -47,7 +47,7 @@
 <button onclick="redirect('interface02.jsp')" id="rem" class="pull-right buttons btn btn-primary">Siguiente</button>
 <button onclick="redirect('interface00.jsp')" id="rem" class="pull-left buttons btn btn-primary">Anterior</button>
 <div class="text-center">
-    <button id="rem" class=" buttons btn btn-primary">Actividad</button>
+    <button onclick="redirect('ActI01.jsp')" id="rem" class=" buttons btn btn-primary">Actividad</button>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">

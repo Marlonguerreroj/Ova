@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <section style="padding-top: 6em">
     <header class="main">
         <h1>Paquetes e Interfaces en JAVA</h1>
@@ -84,12 +85,16 @@ public class TestInterface {
         System.out.println ("Tenemos un total de " + serieDeFiguras.size() + " figuras y su área total es de "  +
         areaTotal + " uds cuadradas");  } }
 </code></pre>
-            <h3>Resultado obtenido</h3>
-            <p class="text-justify">Tenemos un total de 7 figuras y su área total es de 160.22504 uds cuadradas</p>
+                            <h3>Resultado obtenido</h3>
+                            <p class="text-justify">Tenemos un total de 7 figuras y su área total es de 160.22504 uds cuadradas</p>
                             </div>
                             </div>
                             </section>
+                            <button onclick="redirect('jdbc.jsp')" id="rem" class="pull-right buttons btn btn-primary">Siguiente</button>
                             <button onclick="redirect('interface01.jsp')" id="rem" class="pull-left buttons btn btn-primary">Anterior</button>
                             <div class="text-center">
-                                <button id="rem" class=" buttons btn btn-primary">Actividad</button>    
+                                <button onclick="redirect('ActCru.jsp')" id="rem" class=" buttons btn btn-primary">Actividad</button>    
+                                <c:if test = "${persona.examen1 <= 0}">
+                                    <button onclick="redirect('Examen00.jsp')" id="rem" class=" buttons btn btn-primary">Examen</button>    
+                                </c:if>
                             </div>

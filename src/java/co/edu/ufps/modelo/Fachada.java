@@ -82,4 +82,19 @@ public class Fachada {
         ActividadDAO dao = new ActividadDAO();
         return dao.listarPreguntas(tema);
     }
+    
+    public boolean actualizarExamen1(int codigo,int examen1) throws Exception{
+        PersonaDTO dTO = new PersonaDTO();
+        dTO.setCodigo(codigo);
+        dTO.setExamen1(examen1);
+        PersonaDAO dao = new PersonaDAO();
+        return dao.actualizarExamen1(dTO);
+    }
+    public boolean actualizarExamen2(int codigo,int examen2) throws Exception{
+        PersonaDTO dTO = new PersonaDTO();
+        dTO.setCodigo(codigo);
+        dTO.setExamen2(examen2);
+        PersonaDAO dao = new PersonaDAO();
+        return dao.actualizarExamen2(dTO);
+    }
 }

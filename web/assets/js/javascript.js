@@ -13,15 +13,22 @@ $(document).ready(function () {
 
 });
 
-function anadirPreguntaH01() {
+function anadirPregunta(tema) {
     $.ajax({
         type: "GET",
         url: "../Actividad",
-        data: {lstPreg: "true", tema: "H01"},
+        data: {lstPreg: "true", tema: tema},
         success: function (data) {
             var i = 0;
             var array = new Array();
-            while (i < 4) {
+            var xx = 4;
+            if (tema == 'Mecanismos') {
+                xx = 10;
+            }
+            if (tema == 'Jdbc') {
+                xx = 10;
+            }
+            while (i < xx) {
                 var x = Math.floor(Math.random() * (data.length - 0)) + 0;
                 function calc(element) {
                     return element === x;
@@ -32,7 +39,14 @@ function anadirPreguntaH01() {
                 }
             }
             i = 0;
-            while (i < 4) {
+            var xy = 4;
+            if (tema == 'Mecanismos') {
+                xy = 10;
+            }
+            if (tema == 'Jdbc') {
+                xy = 10;
+            }
+            while (i < xy) {
                 var lbla = "#lblP" + (+i + 1) + "a";
                 var lblb = "#lblP" + (+i + 1) + "b";
                 var lblc = "#lblP" + (+i + 1) + "c";
@@ -69,68 +83,137 @@ function anadirPreguntaH01() {
     });
 }
 
-function anadirPreguntaH02() {
-    $.ajax({
-        type: "GET",
-        url: "../Actividad",
-        data: {lstPreg: "true", tema: "H02"},
-        success: function (data) {
-            var i = 0;
-            var array = new Array();
-            while (i < 4) {
-                var x = Math.floor(Math.random() * (data.length - 0)) + 0;
-                function calc(element) {
-                    return element === x;
-                }
-                if (array.findIndex(calc) < 0) {
-                    array[i] = x;
-                    i++;
-                }
-            }
-            i = 0;
-            while (i < 4) {
-                var lbla = "#lblP" + (+i + 1) + "a";
-                var lblb = "#lblP" + (+i + 1) + "b";
-                var lblc = "#lblP" + (+i + 1) + "c";
-                var lbld = "#lblP" + (+i + 1) + "d";
-                var ra = "#p" + (+i + 1) + "a";
-                var rb = "#p" + (+i + 1) + "b";
-                var rc = "#p" + (+i + 1) + "c";
-                var rd = "#p" + (+i + 1) + "d";
-                var divc = "#divp" + (i + 1) + "c";
-                var divd = "#divp" + (i + 1) + "d";
-                $("#divp" + (i + 1)).prop("hidden", false);
-                $("#p" + (i + 1)).append(data[array[i]].nombre);
-                $(lbla).append(data[array[i]].opcion1);
-                $(lblb).append(data[array[i]].opcion2);
-                if (data[array[i]].opcion3 === "-") {
-                    $(divc).prop("hidden", true);
-                    $(divd).prop("hidden", true);
-                }
-                $(lblc).append(data[array[i]].opcion3);
-                $(lbld).append(data[array[i]].opcion4);
-                $("#iP" + (i + 1)).val(data[array[i]].respuesta);
-
-                $(ra).val(data[array[i]].opcion1);
-                $(rb).val(data[array[i]].opcion2);
-                $(rc).val(data[array[i]].opcion3);
-                $(rd).val(data[array[i]].opcion4);
-
-                i++;
-            }
-        },
-        error: function (data) {
-
+function calificar(ex) {
+    $("#calificar").bind("click", function () {
+        var porcentaje = 0;
+        var a = $("#iP1").val().toLowerCase();
+        var b = $("#iP2").val().toLowerCase();
+        var c = $("#iP3").val().toLowerCase();
+        var d = $("#iP4").val().toLowerCase();
+        var e = $("#iP5").val().toLowerCase();
+        var f = $("#iP6").val().toLowerCase();
+        var g = $("#iP7").val().toLowerCase();
+        var h = $("#iP8").val().toLowerCase();
+        var i = $("#iP9").val().toLowerCase();
+        var j = $("#iP10").val().toLowerCase()
+        if ($("#p1" + a).is(':checked')) {
+            porcentaje = porcentaje + 10;
         }
+        if ($("#p2" + b).is(':checked')) {
+            porcentaje = porcentaje + 10;
+        }
+        if ($("#p3" + c).is(':checked')) {
+            porcentaje = porcentaje + 10;
+        }
+        if ($("#p4" + d).is(':checked')) {
+            porcentaje = porcentaje + 10;
+        }
+        if ($("#p5" + e).is(':checked')) {
+            porcentaje = porcentaje + 10;
+        }
+        if ($("#p6" + f).is(':checked')) {
+            porcentaje = porcentaje + 10;
+        }
+        if ($("#p7" + g).is(':checked')) {
+            porcentaje = porcentaje + 10;
+        }
+        if ($("#p8" + h).is(':checked')) {
+            porcentaje = porcentaje + 10;
+        }
+        if ($("#p9" + i).is(':checked')) {
+            porcentaje = porcentaje + 10;
+        }
+        if ($("#p10" + j).is(':checked')) {
+            porcentaje = porcentaje + 10;
+        }
+        $("#remp").empty();
+        if (ex == 'Ex1') {
+            $("#remp").empty();
+            $("#remp").load('jdbc.jsp', function () {
+                $.ajax({
+                    type: "GET",
+                    url: "../Control",
+                    data: {insEx01: "true", porcentaje: porcentaje},
+                    success: function (data) {
+                        if (data == 'true') {
+                            asd(porcentaje);
+                        }
+                    },
+                    error: function (data) {
+
+                    }
+                });
+
+            });
+        } else if (ex == 'Ex2') {
+            $("#remp").empty();
+            $("#remp").load('herencia00.jsp', function () {
+                $.ajax({
+                    type: "GET",
+                    url: "../Control",
+                    data: {insEx02: "true", porcentaje: porcentaje},
+                    success: function (data) {
+                        if (data == 'true') {
+                            asd(porcentaje);
+                        }
+                    },
+                    error: function (data) {
+
+                    }
+                });
+
+            });
+        }
+
     });
+
 }
 
-function comprobarRespuestas() {
+function asd(porcentaje) {
+    $("#jdSec").css("padding-top", "3em");
+    $("#jdSec").prepend('<div class="alert alert-success"><strong>Calificaci\u00F3n obtenida:  </strong>' + porcentaje + '% </div>');
+
+}
+
+function comprobarRespuestas(tipo) {
     $("#comprobar").bind("click", function () {
         var a = $("#iP1").val().toLowerCase();
         var b = $("#iP2").val().toLowerCase();
         var c = $("#iP3").val().toLowerCase();
         var d = $("#iP4").val().toLowerCase();
+        if (tipo == 'Examen') {
+            var e = $("#iP5").val().toLowerCase();
+            var f = $("#iP6").val().toLowerCase();
+            var g = $("#iP7").val().toLowerCase();
+            var h = $("#iP8").val().toLowerCase();
+            var i = $("#iP9").val().toLowerCase();
+            var j = $("#iP10").val().toLowerCase();
+            $("#lblP5" + e).css("color", "green");
+            if ($("#true5").length === 0) {
+                $('#divp5' + e).append('<span id="true5" style="color:green;font-size:1.5em" class="fa fa-check-circle-o"></span>');
+            }
+            $("#lblP6" + f).css("color", "green");
+            if ($("#true6").length === 0) {
+                $('#divp6' + f).append('<span id="true6" style="color:green;font-size:1.5em" class="fa fa-check-circle-o"></span>');
+            }
+            $("#lblP7" + g).css("color", "green");
+            if ($("#true7").length === 0) {
+                $('#divp7' + g).append('<span id="true7" style="color:green;font-size:1.5em" class="fa fa-check-circle-o"></span>');
+            }
+            $("#lblP8" + h).css("color", "green");
+            if ($("#true8").length === 0) {
+                $('#divp8' + h).append('<span id="true8" style="color:green;font-size:1.5em" class="fa fa-check-circle-o"></span>');
+            }
+            $("#lblP9" + i).css("color", "green");
+            if ($("#true9").length === 0) {
+                $('#divp9' + i).append('<span id="true9" style="color:green;font-size:1.5em" class="fa fa-check-circle-o"></span>');
+            }
+            $("#lblP10" + j).css("color", "green");
+            if ($("#true10").length === 0) {
+                $('#divp10' + j).append('<span id="true10" style="color:green;font-size:1.5em" class="fa fa-check-circle-o"></span>');
+            }
+
+        }
 
         $("#lblP1" + a).css("color", "green");
         if ($("#true").length === 0) {
@@ -188,13 +271,42 @@ function redirect(url) {
         if (url === 'config.jsp') {
             addActualizarC();
         } else if (url === 'ActH01.jsp') {
-            anadirPreguntaH01();
+            anadirPregunta("H01");
             comprobarRespuestas();
-        
         } else if (url === 'ActH02.jsp') {
-            alert("ASD");
-            anadirPreguntaH02();
+            anadirPregunta("H02");
             comprobarRespuestas();
+        } else if (url === 'ActH03.jsp') {
+            anadirPregunta("H03");
+            comprobarRespuestas();
+        } else if (url === 'ActH04.jsp') {
+            anadirPregunta("H04");
+            comprobarRespuestas();
+        } else if (url === 'ActH05.jsp') {
+            anadirPregunta("H05");
+            comprobarRespuestas();
+        } else if (url === 'ActH06.jsp') {
+            anadirPregunta("H06");
+            comprobarRespuestas();
+        } else if (url === 'ActI01.jsp') {
+            anadirPregunta("I01");
+            comprobarRespuestas();
+        } else if (url === 'ActCru.jsp') {
+            cru();
+        } else if (url === 'ActJdbc.jsp') {
+            anadirPregunta("JDBC00");
+            comprobarRespuestas();
+        } else if (url === 'ActJdbc_7.jsp') {
+            anadirPregunta("JDBC07");
+            comprobarRespuestas();
+        } else if (url === 'Examen00.jsp') {
+            anadirPregunta("Mecanismos");
+            calificar("Ex1");
+            comprobarRespuestas("Examen");
+        } else if (url === 'Examen01.jsp') {
+            anadirPregunta("Jdbc");
+            calificar("Ex2");
+            comprobarRespuestas("Examen");
         }
     });
 

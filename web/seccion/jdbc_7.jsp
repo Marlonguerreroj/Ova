@@ -1,5 +1,6 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!-- Banner -->
-<section style="padding-top: 6em">
+<section id="jdSec" style="padding-top: 6em">
     <header class="main">
         <h1>Clases y Métodos de JDBC</h1>
         <p>Cerrar Conexión</p>
@@ -21,7 +22,7 @@
                 cualquier resultado al intentar realizar un acceso a la base de datos. ¿A que nos 
                 referimos con esto? A que si el método debe cerrar los recursos y la conexión tanto 
                 como si se ejecuta normalmente como si se lanza una excepción de cualquier tipo. 
-                </p>
+            </p>
             <p class="text-justify">Esto se logra mediante el bloque finally.</p>
             <pre>
                 <code>finally{
@@ -76,3 +77,9 @@ while(resultado.next()){
     </div> 
 </section>
 <button onclick="redirect('jdbc_6.jsp')" id="rem" class="pull-left buttons btn btn-primary">Anterior</button>
+<div class="text-center">
+    <button onclick="redirect('ActJdbc_7.jsp')" id="rem" class=" buttons btn btn-primary">Actividad</button>
+    <c:if test = "${persona.examen2 <= 0}">
+        <button onclick="redirect('Examen01.jsp')" id="rem" class=" buttons btn btn-primary">Examen</button>    
+    </c:if>
+</div>

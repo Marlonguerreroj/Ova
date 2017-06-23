@@ -361,6 +361,8 @@ function redirect(url) {
                                         + '<td>' + item.apellido + '</td>'
                                         + '<td>' + item.correo + '</td>'
                                         + '<td>' + item.celular + '</td>'
+                                        + '<td>' + item.examen1+'%' + '</td>'
+                                        + '<td>' + item.examen2+'%' + '</td>'
                                         + '</tr>');
                             }
                             if ($('#listAdm').length > 0 && item.tipo.id === 1) {

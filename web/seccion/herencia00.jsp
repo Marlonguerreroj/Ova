@@ -1,5 +1,5 @@
 <!-- Banner -->
-<section style="padding-top: 6em">
+<section id="jdSec" style="padding-top: 6em">
     <header class="main">
         <h1>La Herencia en Java</h1>
         <p>Introducción</p>

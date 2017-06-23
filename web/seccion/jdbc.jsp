@@ -1,5 +1,5 @@
 <!-- Banner -->
-<section style="padding-top: 6em">
+<section id="jdSec" style="padding-top: 6em">
     <header class="main">
         <h1>JDBC: Bases de Datos desde Java</h1>
         <p>¿Qué es JDBC?</p>
@@ -73,3 +73,6 @@
 </section>  
 <button onclick="redirect('jdbc_1.jsp')" id="rem" class="pull-right buttons btn btn-primary">Siguiente</button>
 <button onclick="redirect('interface02.jsp')" id="rem" class="pull-left buttons btn btn-primary">Anterior</button>
+<div class="text-center">
+<button onclick="redirect('ActJdbc.jsp')" id="rem" class=" buttons btn btn-primary">Actividad</button>
+</div>

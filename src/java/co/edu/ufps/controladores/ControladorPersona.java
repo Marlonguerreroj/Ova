@@ -189,13 +189,44 @@ public class ControladorPersona extends HttpServlet {
             try {
                 Fachada f = new Fachada();
                 exito = f.cambiarContrasena(nCont, persona.getCodigo());
-                if(exito){
+                if (exito) {
                     persona = f.iniciarSesion(persona.getCodigo(), nCont);
                 }
             } catch (Exception e) {
             }
         }
         out.write("" + exito);
+
+    }
+
+    protected void registrarExamen1(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            int porcentaje = Integer.parseInt(request.getParameter("porcentaje"));
+            Fachada f = new Fachada();
+            PrintWriter out = response.getWriter();
+            System.out.println(persona.getCodigo());
+            out.write(""+f.actualizarExamen1(persona.getCodigo(), porcentaje));
+            persona = f.iniciarSesion(persona.getCodigo(), persona.getContrasena());
+                request.getSession().setAttribute("persona", persona);
+        } catch (Exception e) {
+
+        }
+
+    }
+    protected void registrarExamen2(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            int porcentaje = Integer.parseInt(request.getParameter("porcentaje"));
+            Fachada f = new Fachada();
+            PrintWriter out = response.getWriter();
+            System.out.println(persona.getCodigo());
+            out.write(""+f.actualizarExamen2(persona.getCodigo(), porcentaje));
+            persona = f.iniciarSesion(persona.getCodigo(), persona.getContrasena());
+                request.getSession().setAttribute("persona", persona);
+        } catch (Exception e) {
+
+        }
 
     }
 
@@ -219,6 +250,10 @@ public class ControladorPersona extends HttpServlet {
             cerrarSesion(request, response);
         } else if (request.getParameter("lstPer") != null) {
             listarPersonas(request, response);
+        } else if (request.getParameter("insEx01") != null) {
+            registrarExamen1(request, response);
+        } else if (request.getParameter("insEx02") != null) {
+            registrarExamen2(request, response);
         }
 
     }

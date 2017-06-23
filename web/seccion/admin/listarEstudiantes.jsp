@@ -20,6 +20,8 @@
                             <th>Apellido</th>
                             <th>Correo</th>
                             <th>Celular</th>
+                            <th>Examen 1</th>
+                            <th>Examen 2</th>
                         </tr>
 
                     </tbody></table></div>

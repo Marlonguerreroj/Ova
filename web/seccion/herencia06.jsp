@@ -56,5 +56,5 @@ float i = (Float)obj;
 <button id="rem" onclick="redirect('interface00.jsp')" class="pull-right buttons btn btn-primary">Siguiente</button>
 <button onclick="redirect('herencia05.jsp')" id="rem" class="pull-left buttons btn btn-primary">Anterior</button>
 <div class="text-center">
-    <button id="rem" class=" buttons btn btn-primary">Actividad</button>
+    <button onclick="redirect('ActH06.jsp')" id="rem" class=" buttons btn btn-primary">Actividad</button>
 </div>

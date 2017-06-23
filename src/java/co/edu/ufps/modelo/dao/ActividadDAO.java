@@ -39,10 +39,24 @@ public class ActividadDAO {
     public ArrayList<PreguntaDTO> listarPreguntas(String tema) throws Exception {
         ArrayList<PreguntaDTO> list = new ArrayList<>();
         conn = Conexion.generarConexion();
+        String where = "where p.id_tema = ?";
+        System.out.println(tema);
+        if (tema.equals("Mecanismos")) {
+            where = "where (p.id_tema = 'H01') OR (p.id_tema = 'H02') OR (p.id_tema = 'H03')"
+                    + " OR (p.id_tema = 'H04') OR (p.id_tema = 'H05') OR (p.id_tema = 'H06') "
+                    + "OR (p.id_tema = 'I01')";
+        }
+        if (tema.equals("Jdbc")) {
+            where = "where (p.id_tema = 'JDBC00') OR (p.id_tema = 'JDBC01') OR (p.id_tema = 'JDBC02')"
+                    + " OR (p.id_tema = 'JDBC03') OR (p.id_tema = 'JDBC04') OR (p.id_tema = 'JDBC05') "
+                    + "OR (p.id_tema = 'JDBC06') OR (p.id_tema = 'JDBC07')";
+        }
         PreparedStatement stmt = conn.prepareStatement("SELECT p.nombre,p.opcion1,p.opcion2,"
                 + " p.opcion3,p.opcion4,p.respuesta, p.id_tema, t.nombre FROM pregunta as p"
-                + " INNER JOIN tema as t on p.id_tema = t.id where p.id_tema = ?");
-        stmt.setString(1, tema);
+                + " INNER JOIN tema as t on p.id_tema = t.id " + where);
+        if (!tema.equals("Mecanismos") && !tema.equals("Jdbc")) {
+            stmt.setString(1, tema);
+        }
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             PreguntaDTO rel = new PreguntaDTO();
@@ -82,4 +96,5 @@ public class ActividadDAO {
         }
         return exito;
     }
+
 }
