@@ -114,6 +114,8 @@
                         </ul>
                     </section>
 
+                                    
+
                     <!-- Section -->
                     <section>
                         <header class="major">
@@ -124,8 +126,10 @@
                             <li class="fa-envelope-o">Marlon Yesid Guerrero Jimenez<br>Marlonyesidgj@ufps.edu.co</li>
                             <li class="fa-envelope-o">Pedro Alexis Ruiz Martinez<br>Pedroalexisrm@ufps.edu.co</li>
                             <li class="fa-envelope-o">MSc. Jairo Alberto Fuentes Camargo<br>Fuentejairo@ufps.edu.co</li>
+
                         </ul>
                     </section>
+
 
                     <!-- Footer -->
                     <footer id="footer">
@@ -146,6 +150,7 @@
         <script src="../assets/js/javascript.js"></script>
         <script src="../assets/js/crucigrama.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
     </body>
 </html>

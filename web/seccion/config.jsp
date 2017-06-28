@@ -1,3 +1,4 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <section style="padding-top: 2em">
     <header class="main">
         <h1>Actualización de los datos de usuario </h1>
@@ -43,6 +44,7 @@
         <div class="text-center" style="padding-top:15px">
             <a class="button" onclick="location.reload()">Cancelar</a>
             <a data-toggle="modal" data-target="#myModalRestablecerClave" class="button">Restablecer contraseña</a>
+            <a data-toggle="modal" data-target="#miProgreso" class="button">Mi progreso</a>
             <button class="button">Actualizar</button>
         </div>
     </form>
@@ -82,10 +84,54 @@
                 <div class="modal-footer">
                     <a type="button" class="button pull-left" data-dismiss="modal">Cerrar</a>
                     <button type="submit" class="button special">
-                        <i class="fa fa-paper-plane"></i> Restablecer
+                        Restablecer
                     </button>
                 </div>            
             </div>
         </div>
     </div>
 </form>
+
+<!-- Modal -->
+<div class="modal  fade" id="miProgreso" role="dialog" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">
+                    <i class="fa fa-tasks"></i> Mi Progreso
+                </h4>
+            </div>
+            <div id="bodyM" class="modal-body"> 
+                <div class="row">
+                    <p>Mecanismos de Reutilización de clases:</p>
+                    <p><strong>${persona.examen1}%</strong></p>
+                </div>
+                <div class="row">
+                    <p>JDBC: Bases de Datos desde Java:</p>
+                    <p><strong>${persona.examen2}%</strong></p>
+                </div>
+                <div class="row">
+                    <p>Estado: </p>
+                    <p><strong>
+                            <c:choose>
+                                <c:when test="${(persona.examen1 >= 60) && (persona.examen2 >= 60)}">
+                                    Aprobado
+                                </c:when>
+                                <c:when test="${(persona.examen1 == 0) || (persona.examen2 == 0)}">
+                                    Inconcluso
+                                </c:when>
+                                <c:when test="${(persona.examen1 < 60) || (persona.examen2 < 60)}">
+                                    Reprobado
+                                </c:when>
+                                
+                            </c:choose>
+                        </strong></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="button pull-right" data-dismiss="modal">Cerrar</a>
+
+            </div>            
+        </div>
+    </div>
+</div>
